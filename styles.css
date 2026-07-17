@@ -1,0 +1,464 @@
+/* ===================================================================
+   SARAH LUNDIN — MOUNTAINWOOD MYSTERIES
+   Design tokens: deep spruce green, cranberry, antique gold, parchment.
+   Signature element: the "postmark" badge, used throughout as a stamp
+   of authenticity — a nod to cozy small-town mail and the inn itself.
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --spruce: #24423A;
+  --spruce-dark: #172B26;
+  --cranberry: #9C3B3F;
+  --cranberry-dark: #7C2E31;
+  --gold: #B8912F;
+  --paper: #EFE6D3;
+  --paper-light: #F7F2E7;
+  --ink: #22201A;
+  --fog: #6E7A72;
+  --fog-light: #B9C2BB;
+
+  --display: 'Fraunces', serif;
+  --body: 'Source Serif 4', serif;
+  --utility: 'Inter', sans-serif;
+
+  --max-w: 1100px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+img{ max-width: 100%; display: block; }
+
+a{ color: inherit; }
+
+h1, h2, h3, h4{
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+  color: var(--spruce-dark);
+}
+
+h1{ font-size: clamp(2.4rem, 5vw, 4rem); }
+h2{ font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+h3{ font-size: 1.4rem; }
+
+.eyebrow{
+  font-family: var(--utility);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cranberry);
+}
+
+p{ margin: 0 0 1em; }
+
+.container{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* -------------------- Header / nav -------------------- */
+
+.site-header{
+  background: var(--spruce);
+  color: var(--paper-light);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 3px solid var(--gold);
+}
+
+.site-header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.brand{
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--paper-light);
+}
+
+.brand-name{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.brand-tag{
+  font-family: var(--utility);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fog-light);
+}
+
+nav.main-nav ul{
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+nav.main-nav a{
+  text-decoration: none;
+  font-family: var(--utility);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper-light);
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+nav.main-nav a:hover,
+nav.main-nav a.active{
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.nav-toggle{ display: none; }
+
+@media (max-width: 720px){
+  .site-header .container{ flex-wrap: wrap; row-gap: 12px; }
+  nav.main-nav ul{ gap: 18px; flex-wrap: wrap; }
+}
+
+/* -------------------- Postmark badge (signature element) -------------------- */
+
+.postmark{
+  width: 108px;
+  height: 108px;
+  flex-shrink: 0;
+}
+
+.postmark .ring{
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-dasharray: 3 3;
+}
+
+.postmark .ring-solid{
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.postmark text{
+  font-family: var(--utility);
+  font-size: 8.4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  fill: currentColor;
+}
+
+.postmark .cancel line{
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.55;
+}
+
+/* -------------------- Hero -------------------- */
+
+.hero{
+  background:
+    radial-gradient(ellipse at top right, rgba(184,145,47,0.15), transparent 55%),
+    var(--paper);
+  padding: 84px 0 72px;
+  border-bottom: 1px solid var(--fog-light);
+}
+
+.hero .container{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+}
+
+.hero-copy{ max-width: 620px; }
+
+.hero-copy h1{ margin-top: 0.2em; }
+
+.hero-lede{
+  font-size: 1.2rem;
+  color: var(--fog);
+  font-style: italic;
+  max-width: 520px;
+}
+
+.hero .postmark{ color: var(--spruce); margin-top: 6px; }
+
+.btn{
+  display: inline-block;
+  font-family: var(--utility);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 26px;
+  border-radius: 2px;
+  border: 1.5px solid var(--spruce);
+  color: var(--spruce);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover{ background: var(--spruce); color: var(--paper-light); }
+
+.btn-solid{
+  background: var(--cranberry);
+  border-color: var(--cranberry);
+  color: var(--paper-light);
+}
+
+.btn-solid:hover{ background: var(--cranberry-dark); border-color: var(--cranberry-dark); }
+
+.btn-row{ display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+/* -------------------- Sections -------------------- */
+
+section{ padding: 72px 0; }
+
+.section-alt{ background: var(--paper-light); }
+
+.section-dark{ background: var(--spruce); color: var(--paper-light); }
+.section-dark h2{ color: var(--paper-light); }
+.section-dark .eyebrow{ color: var(--gold); }
+
+.section-head{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* -------------------- Book cover cards (CSS-drawn, no images needed) -------------------- */
+
+.book-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 32px;
+}
+
+.book-card{ display: flex; flex-direction: column; gap: 14px; }
+
+.cover{
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(160deg, var(--spruce) 0%, var(--spruce-dark) 100%);
+  border: 1px solid var(--gold);
+  outline: 6px solid var(--paper-light);
+  outline-offset: -12px;
+  color: var(--paper-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 rgba(34,32,26,0.12);
+}
+
+.coming-soon-banner{
+  position: absolute;
+  top: 42%;
+  left: -25%;
+  width: 150%;
+  transform: rotate(-32deg);
+  transform-origin: center;
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 6vw, 1.9rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper-light);
+  background: var(--cranberry);
+  padding: 10px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  pointer-events: none;
+}
+
+.cover .series-eyebrow{
+  font-family: var(--utility);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.cover .cover-title{
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.15;
+}
+
+.cover .cover-author{
+  font-family: var(--utility);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(247,242,231,0.35);
+  padding-top: 10px;
+}
+
+.cover.tone-2{ background: linear-gradient(160deg, var(--cranberry) 0%, var(--cranberry-dark) 100%); border-color: var(--paper-light); }
+.cover.tone-3{ background: linear-gradient(160deg, #4A5A2E 0%, #313F1D 100%); border-color: var(--gold); }
+.cover.tone-4{ background: linear-gradient(160deg, #3A4A57 0%, #232E37 100%); border-color: var(--gold); }
+
+.book-meta{ font-family: var(--utility); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--fog); text-transform: uppercase; }
+.book-blurb{ font-size: 0.96rem; color: var(--ink); }
+
+/* -------------------- Cards / lists -------------------- */
+
+.card{
+  background: var(--paper-light);
+  border: 1px solid var(--fog-light);
+  padding: 28px;
+}
+
+.two-col{ display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+
+@media (max-width: 800px){
+  .two-col{ grid-template-columns: 1fr; }
+  .hero .container{ grid-template-columns: 1fr; }
+}
+
+.pawline{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--utility);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fog);
+  margin-bottom: 10px;
+}
+
+.paw{ width: 16px; height: 16px; flex-shrink: 0; color: var(--cranberry); }
+
+/* -------------------- News / blog cards -------------------- */
+
+.post-list{ display: flex; flex-direction: column; gap: 0; }
+
+.post-item{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--fog-light);
+}
+
+.post-date{ font-family: var(--utility); font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--cranberry); }
+
+@media (max-width: 600px){
+  .post-item{ grid-template-columns: 1fr; }
+}
+
+/* -------------------- Forms -------------------- */
+
+.form-field{ margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
+
+.form-field label{
+  font-family: var(--utility);
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--spruce-dark);
+}
+
+.form-field input,
+.form-field textarea{
+  font-family: var(--body);
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1.5px solid var(--fog-light);
+  background: var(--paper-light);
+  color: var(--ink);
+  border-radius: 2px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus{
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+
+.form-note{ font-size: 0.85rem; color: var(--fog); }
+
+/* -------------------- Footer -------------------- */
+
+.site-footer{
+  background: var(--spruce-dark);
+  color: var(--fog-light);
+  padding: 48px 0 32px;
+}
+
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.footer-grid h4{ color: var(--paper-light); font-size: 0.95rem; }
+
+.footer-grid ul{ list-style: none; margin: 0; padding: 0; }
+.footer-grid li{ margin-bottom: 8px; }
+.footer-grid a{ text-decoration: none; color: var(--fog-light); }
+.footer-grid a:hover{ color: var(--gold); }
+
+.footer-bottom{
+  border-top: 1px solid rgba(247,242,231,0.15);
+  padding-top: 20px;
+  font-family: var(--utility);
+  font-size: 0.78rem;
+  color: var(--fog-light);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 700px){
+  .footer-grid{ grid-template-columns: 1fr; }
+}
+
+/* -------------------- Utility -------------------- */
+
+.center{ text-align: center; }
+.mt-0{ margin-top: 0; }
+.small{ font-size: 0.85rem; color: var(--fog); }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition: none !important; }
+}
