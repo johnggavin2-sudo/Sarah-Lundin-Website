@@ -902,3 +902,23 @@ section{ padding: 72px 0; }
   html{ scroll-behavior: auto; }
   *{ transition: none !important; }
 }
+/* Make book-cover Amazon links clickable */
+.book-card > a {
+  display: block;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.book-card > a .book-cover {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Prevent decorative card layers from blocking clicks */
+.book-card::before,
+.book-card::after {
+  pointer-events: none;
+}
