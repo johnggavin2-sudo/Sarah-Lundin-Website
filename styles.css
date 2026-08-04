@@ -941,3 +941,57 @@ section{ padding: 72px 0; }
 .book-card::after {
   pointer-events: none;
 }
+/* =====================================================
+   SARAH LUNDIN LOGO
+   ===================================================== */
+
+.logo-hero {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(420px, 1.15fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  filter: drop-shadow(0 14px 18px rgba(23, 43, 38, 0.18));
+}
+
+/* Smaller logo for the footer */
+
+.footer-logo {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+/* Mobile layout */
+
+@media (max-width: 850px) {
+  .logo-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-logo {
+    order: -1;
+  }
+
+  .hero-logo img {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-logo img {
+    max-width: 100%;
+  }
+}
